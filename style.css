@@ -14,10 +14,22 @@ body {
   max-width: 500px;
 }
 
-textarea {
-  width: 100%;
-  height: 100px;
+h1 {
   margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+input {
+  width: 100%;
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid gold;
