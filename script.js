@@ -1,12 +1,26 @@
-const input = document.getElementById("qrInput");
-const canvas = document.getElementById("qrCanvas");
 const generateBtn = document.getElementById("generateBtn");
 const downloadBtn = document.getElementById("downloadBtn");
+const canvas = document.getElementById("qrCanvas");
 
 generateBtn.onclick = () => {
-  const text = input.value.trim();
-  if (!text) return alert("Please enter some text or JSON.");
-  QRCode.toCanvas(canvas, text, { width: 256 }, err => {
+  const name = document.getElementById("name").value.trim();
+  const id = document.getElementById("id").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const section = document.getElementById("section").value.trim();
+
+  if (!name || !id || !address || !section) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  const qrData = {
+    name,
+    id,
+    address,
+    section
+  };
+
+  QRCode.toCanvas(canvas, JSON.stringify(qrData), { width: 256 }, err => {
     if (err) console.error(err);
   });
 };
